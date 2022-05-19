@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudImovel", "CrudImovel\CrudImovel.csproj", "{D88041E6-4380-4056-AE73-A5D37168EC0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D88041E6-4380-4056-AE73-A5D37168EC0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88041E6-4380-4056-AE73-A5D37168EC0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88041E6-4380-4056-AE73-A5D37168EC0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88041E6-4380-4056-AE73-A5D37168EC0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F25EF29-1DB4-4C65-8314-0F49FA8A235F}
+	EndGlobalSection
+EndGlobal
