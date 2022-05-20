@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrudImovel.Migrations
 {
     [DbContext(typeof(AppDbcontext))]
-    [Migration("20220519035852_Inicial")]
+    [Migration("20220520181938_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,12 @@ namespace CrudImovel.Migrations
 
                     b.Property<string>("Rua")
                         .HasColumnType("longtext");
+
+                    b.Property<string>("TipoImovel")
+                        .HasColumnType("longtext");
+
+                    b.Property<double>("ValorAluguel")
+                        .HasColumnType("double");
 
                     b.HasKey("Id");
 

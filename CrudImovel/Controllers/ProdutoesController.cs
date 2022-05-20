@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CrudImovel.Data;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace CrudImovel.Controllers
 {
@@ -75,12 +77,26 @@ namespace CrudImovel.Controllers
         // POST: api/Produtoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Imovel>> PostProduto(Imovel produto)
+        public async Task<ActionResult<Imovel>> PostProduto(string cep, string tipoImovel, double valorAluguel)
         {
-            _context.Imovel.Add(produto);
+           Imovel imovel = new Imovel();
+
+            HttpClient cliente = new HttpClient();
+            HttpResponseMessage resposta = await cliente.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
+            var jsonString = resposta.Content.ReadAsStringAsync().Result;
+            cepResponce respostaViaCep = JsonConvert.DeserializeObject<cepResponce>(jsonString);
+
+            imovel.Cep = cep;
+            imovel.Cidade = respostaViaCep.Localidade;
+            imovel.Estado = respostaViaCep.Uf;
+            imovel.Rua = respostaViaCep.Logradouro;
+            imovel.TipoImovel = tipoImovel;
+            imovel.ValorAluguel = valorAluguel;
+
+            _context.Imovel.Add(imovel);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduto", new { id = produto.Id }, produto);
+            return CreatedAtAction("GetProduto", new { id = imovel.Id }, imovel);
         }
 
         // DELETE: api/Produtoes/5

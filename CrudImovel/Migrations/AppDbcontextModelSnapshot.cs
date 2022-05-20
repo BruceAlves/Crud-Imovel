@@ -35,6 +35,12 @@ namespace CrudImovel.Migrations
                     b.Property<string>("Rua")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("TipoImovel")
+                        .HasColumnType("longtext");
+
+                    b.Property<double>("ValorAluguel")
+                        .HasColumnType("double");
+
                     b.HasKey("Id");
 
                     b.ToTable("Imovel");

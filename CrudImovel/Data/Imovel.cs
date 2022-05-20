@@ -7,5 +7,7 @@
         public string  Rua { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }
+        public double ValorAluguel { get; set; }
+        public string TipoImovel { get; set; }
     }
 }
